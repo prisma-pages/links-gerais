@@ -1,4 +1,4 @@
-// Base de dados contendo os botões divididos nas 4 categorias
+// Base de dados
 const linksData = {
     patio: [
         { title: "Painel CCO", url: "https://autovm/Sistemas/PainelCCO/PainelCCO.aspx" },
@@ -23,7 +23,7 @@ const linksData = {
         { title: "Fale com Gerente", url: "https://vale-forms.valeglobal.net/public?id=tovjs3BfOZB4vn5Go4Qe9w%3D%3D&lang=pt-BR" },
         { title: "A Grande Jogada 2026 - Roda de Conversa", url: "https://vale-forms.valeglobal.net/public?id=P9QeoYmB9svosCBS9srXpA%3D%3D&lang=pt-BR&need_auth=false" },
         { title: "Teams", url: "https://teams.microsoft.com/v2/" },
-        { title: "Inclusão de Links na Página", url: "https://forms.cloud.microsoft/r/GiHKkf8cAz" },
+        { title: "Inclusão de Links na Página", url: "https://forms.cloud.microsoft/r/GiHKkf8cAz" }
     ],
     registros: [
         { title: "Forms Tempo de Drenagem", url: "https://vale-forms.valeglobal.net/public?id=WSqN%2fvQcg26iUzmzvSi59Q%3d%3d&lang=pt-BR" },
@@ -42,7 +42,7 @@ const linksData = {
     ]
 };
 
-// Função para renderizar os botões dinamicamente
+// Renderizar os botões dinamicamente
 function renderButtons() {
     for (const category in linksData) {
         const container = document.getElementById(`grid-${category}`);
@@ -59,7 +59,7 @@ function renderButtons() {
                     ${item.title}
                 </a>
                 <button class="copy-btn" aria-label="Copiar link do ${item.title}">
-                    <i class="fa-regular fa-copy"></i> Copiar Link
+                    <i data-lucide="copy"></i> Copiar Link
                 </button>
             `;
 
@@ -69,9 +69,12 @@ function renderButtons() {
             container.appendChild(card);
         });
     }
+
+    // Inicializar os ícones do Lucide após renderizar o DOM
+    lucide.createIcons();
 }
 
-// Função para copiar URL para a área de transferência
+// Copiar URL para a área de transferência
 function copyToClipboard(event, url) {
     event.stopPropagation();
     event.preventDefault();
@@ -95,7 +98,7 @@ function copyToClipboard(event, url) {
     }
 }
 
-// Controle do Toast Notificação
+// Toast Notificação
 let toastTimeout;
 function showToast() {
     const toast = document.getElementById('toast');
