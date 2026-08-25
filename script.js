@@ -20,7 +20,7 @@ const linksData = {
         { title: "Kaizen", url: "https://efvmworkplace/central%20de%20kaizen/login.html" },
         { title: "Manutenção EFVM", url: "http://efvmonline/cco/manut_mes/" },
         { title: "Redefinição de Senha", url: "https://spx.valeglobal.net/" },
-        { title: "Fale com Gerente", url: "https://vale-forms.valeglobal.net/public?id=jrWjwyWM%2F62TMGK2s3KvEA%3D%3D&lang=pt-BR&need_auth=false" },
+        { title: "Fale com o Gerente", url: "https://vale-forms.valeglobal.net/public?id=jrWjwyWM%2F62TMGK2s3KvEA%3D%3D&lang=pt-BR&need_auth=false" },
          { title: "Bate Papo com o Gerente", url: "https://vale-forms.valeglobal.net/public?id=pzHQFNU5uR5GAGBSWO3I%2Fg%3D%3D&lang=pt-BR" },
         { title: "A Grande Jogada 2026 - Roda de Conversa", url: "https://vale-forms.valeglobal.net/public?id=P9QeoYmB9svosCBS9srXpA%3D%3D&lang=pt-BR&need_auth=false" },
         { title: "Teams", url: "https://teams.microsoft.com/v2/" },
