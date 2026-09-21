@@ -8,7 +8,7 @@ const linksData = {
         { title: "SIOP", url: "https://siop.gpvportos-v2.valeglobal.net/reports/menu/view" },
         { title: "TOPS", url: "https://tops/AssetManager/RailRoadReport/Index" },
         { title: "BI Tempo de Drenagem", url: "https://app.powerbi.com/groups/me/reports/1fedc2cd-27f7-49c1-a90f-bdde63862f00/9afdf743b0130e0a9de6?ctid=7893571b-6c2c-4cef-b4da-7d4b266a0626&experience=power-bi" },
-        { title: "Painel de Apresentação", url: "https://efvmworkplace/trocadeturno/v2/default.asp" },
+        { title: "Painel de Apresentação", url: "http://efvmonline/trocadeturno/v2/default.asp" },
         { title: "Teste de Prontidão", url: "https://sistemaprontos.com.br/auth/realms/vale/protocol/openid-connect/auth?client_id=teste-web&redirect_uri=https%3A%2F%2Fvale.sistemaprontos.com.br%2F%23%2Fintroducao&state=d99fbf2d-46b3-42ae-b42e-d989565bf037&response_mode=fragment&response_type=code&scope=openid&nonce=6d95ac97-25d3-4a64-851c-c32570dc1d7c" }
     ],
     gerais: [
