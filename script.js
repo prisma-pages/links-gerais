@@ -1,16 +1,7 @@
 // Base de dados
 const linksData = {
-    patio: [
-        { title: "Novo Hub de Links", url: "https://prisma-pages.github.io/Hub-Links-Gerais/" },
-       ],
-    gerais: [],
-        
-    registros: [
-       
-    ],
-    treinamentos: [
-        
-    ]
+    gerais: [
+        { title: "Novo Hub de Links", url: "https://prisma-pages.github.io/Hub-Links-Gerais/" }]
 };
 
 // Renderizar os botões dinamicamente
