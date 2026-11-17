@@ -1,45 +1,442 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Links Operacionais</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Links Operacionais - Site Migrado</title>
+    <!-- Fonte limpa similar à da interface -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
 
+    <style>
+        :root {
+            --bg-page: #f0f4f8;
+            --bg-card: #f8fafc;
+            --bg-white: #ffffff;
+            --teal-dark: #007a78;
+            --cyan-accent: #00b4d8;
+            --cyan-hover: #0096b4;
+            --gold-border: #eab308;
+            --danger-text: #c81e1e;
+            --danger-bg: #fef2f2;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --shadow-soft: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+            --shadow-btn: 0 4px 12px rgba(15, 23, 42, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px;
+            gap: 24px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 1120px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            flex: 1;
+        }
+
+        /* Cabeçalho idêntico ao original */
+        .header-card {
+            background-color: var(--bg-card);
+            border-radius: 18px;
+            padding: 28px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            border-bottom: 3px solid var(--gold-border);
+        }
+
+        .header-card h1 {
+            color: var(--teal-dark);
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .header-alert {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--danger-text);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .header-alert i {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Container principal */
+        .main-container {
+            background-color: var(--bg-card);
+            border-radius: 22px;
+            padding: 32px;
+            box-shadow: var(--shadow-soft);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--cyan-accent);
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--cyan-accent);
+            margin-bottom: 28px;
+        }
+
+        .section-header i {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Cartão de aviso de migração */
+        .notice-box {
+            background-color: var(--bg-white);
+            border-radius: 18px;
+            border-left: 6px solid var(--cyan-accent);
+            padding: 36px 28px;
+            box-shadow: var(--shadow-btn);
+            max-width: 720px;
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .icon-badge {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background-color: #e0f7fa;
+            color: var(--teal-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-badge i {
+            width: 30px;
+            height: 30px;
+        }
+
+        .notice-box h2 {
+            font-size: 1.45rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .notice-box p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 560px;
+        }
+
+        .url-preview {
+            background-color: var(--bg-page);
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-family: monospace;
+            font-size: 0.92rem;
+            color: var(--teal-dark);
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        /* Botões de ação */
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            margin-top: 6px;
+            width: 100%;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--teal-dark);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 14px 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0, 122, 120, 0.25);
+            transition: transform 0.18s ease, background-color 0.18s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #00615f;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--bg-white);
+            color: var(--text-main);
+            border: 1.5px solid #cbd5e1;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 22px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.18s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--cyan-accent);
+            color: var(--teal-dark);
+            background-color: #f8fafc;
+        }
+
+        .btn-primary i,
+        .btn-secondary i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .redirect-info {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .redirect-info span {
+            font-weight: 700;
+            color: var(--teal-dark);
+        }
+
+        .cancel-redirect {
+            background: none;
+            border: none;
+            color: var(--cyan-hover);
+            text-decoration: underline;
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-left: 6px;
+        }
+
+        /* Rodapé idêntico ao original */
+        .footer-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Toast de notificação */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background-color: var(--teal-dark);
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.25s ease;
+            z-index: 100;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .main-container {
+                padding: 20px 16px;
+            }
+            .notice-box {
+                padding: 28px 18px;
+            }
+            .actions {
+                flex-direction: column;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
 <body>
 
-    <header class="header glass-card">
-        <h1>Links Operacionais</h1>
-        <p class="blink-warning">
-            <i data-lucide="triangle-alert"></i> Atenção: Em Breve esse site será desativado, acesse nosso novo Hub de Links.
-        </p>
-    </header>
+    <div class="wrapper">
+        <!-- Cabeçalho -->
+        <header class="header-card">
+            <h1>Links Operacionais</h1>
+            <div class="header-alert">
+                <i data-lucide="alert-triangle"></i>
+                <span>Aviso Importante: Esta página será desativada em breve.</span>
+            </div>
+        </header>
 
-    <main class="main-container">
+        <!-- Conteúdo Principal -->
+        <main class="main-container">
+            <div class="section-header">
+                <i data-lucide="arrow-right-left"></i>
+                <span>Atualização de Endereço</span>
+            </div>
 
+            <div class="notice-box">
+                <div class="icon-badge">
+                    <i data-lucide="external-link"></i>
+                </div>
 
-        <div class="glass-category-card category-gerais">
-            <h2 class="category-header">
-                <i data-lucide="link"></i> Gerais
-            </h2>
-            <div class="button-grid" id="grid-gerais"></div>
-        </div>
+                <h2>Migramos para um Novo Hub de Links!</h2>
 
-    </main>
+                <p>
+                    Este endereço antigo será desativado permanentemente. Todos os links operacionais agora estão reunidos e atualizados em nossa nova plataforma. Salve o novo endereço nos seus favoritos:
+                </p>
 
-    <div id="toast" class="toast glass-card">
-        <i data-lucide="check-circle-2"></i> Link copiado com sucesso!
+                <div class="url-preview">
+                    https://prisma-pages.github.io/Hub-Links-Gerais/
+                </div>
+
+                <div class="actions">
+                    <a href="https://prisma-pages.github.io/Hub-Links-Gerais/" class="btn-primary">
+                        <i data-lucide="arrow-up-right"></i>
+                        Acessar Novo Hub de Links
+                    </a>
+
+                    <button type="button" class="btn-secondary" id="copyNewLinkBtn">
+                        <i data-lucide="copy"></i>
+                        Copiar Novo Link
+                    </button>
+                </div>
+
+                <div class="redirect-info" id="redirectContainer">
+                    Você será redirecionado automaticamente em <span id="countdown">10</span>s.
+                    <button type="button" class="cancel-redirect" id="cancelRedirectBtn">Cancelar</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="footer-card">
+            2026 - © Marlon Fernandes &amp; Nathara Ribeiro
+        </footer>
     </div>
 
-    <footer class="footer glass-card">
-        <p>2026 - © Marlon Fernandes & Nathara Ribeiro</p>
-    </footer>
+    <div id="toast" class="toast">Link do novo Hub copiado com sucesso!</div>
 
-    <script src="script.js"></script>
+    <script>
+        const NEW_HUB_URL = "https://prisma-pages.github.io/Hub-Links-Gerais/";
+
+        // Inicializar ícones
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Lógica de cópia com fallback
+        let toastTimeout;
+        function showToast() {
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function copyToClipboard(url) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url)
+                    .then(() => showToast())
+                    .catch(() => fallbackCopy(url));
+            } else {
+                fallbackCopy(url);
+            }
+        }
+
+        function fallbackCopy(url) {
+            const textArea = document.createElement('textarea');
+            textArea.value = url;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error("Erro ao copiar:", err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        document.getElementById('copyNewLinkBtn').addEventListener('click', () => {
+            copyToClipboard(NEW_HUB_URL);
+        });
+
+        // Contador regressivo para redirecionamento automático
+        let secondsLeft = 10;
+        const countdownEl = document.getElementById('countdown');
+        const redirectContainer = document.getElementById('redirectContainer');
+        const cancelBtn = document.getElementById('cancelRedirectBtn');
+
+        const redirectTimer = setInterval(() => {
+            secondsLeft--;
+            if (countdownEl) countdownEl.textContent = secondsLeft;
+
+            if (secondsLeft <= 0) {
+                clearInterval(redirectTimer);
+                window.location.href = NEW_HUB_URL;
+            }
+        }, 1000);
+
+        cancelBtn.addEventListener('click', () => {
+            clearInterval(redirectTimer);
+            redirectContainer.textContent = "Redirecionamento automático cancelado. Clique no botão acima quando quiser acessar.";
+        });
+    </script>
 </body>
-
 </html>
