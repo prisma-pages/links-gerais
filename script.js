@@ -1,7 +1,8 @@
 // Base de dados
 const linksData = {
     gerais: [
-        { title: "Novo Hub de Links", url: "https://prisma-pages.github.io/Hub-Links-Gerais/" }]
+        { title: "Novo Hub de Links", url: "https://prisma-pages.github.io/Hub-Links-Gerais/" }
+    ]
 };
 
 // Renderizar os botões dinamicamente
